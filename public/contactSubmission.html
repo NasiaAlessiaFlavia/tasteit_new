@@ -62,50 +62,74 @@
     <p>2024 TasteIt.Restaurante &copy; Drepturi de autor.</p>
 </footer>
 
-<script>
-    function displayRequests() {
-        const requests = JSON.parse(localStorage.getItem('requests')) || [];
-        const dataList = document.getElementById('dataList');
-        dataList.innerHTML = ''; // Clear existing content
 
-        requests.forEach((request, index) => {
-            const listItem = document.createElement('li');
-            listItem.classList.add('list-group-item', 'request-item');
+<script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
+    import { getFirestore, collection, getDocs, deleteDoc, doc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
-            const details = document.createElement('div');
-            details.classList.add('request-details');
-            for (const [key, value] of Object.entries(request)) {
-                const p = document.createElement('p');
-                p.innerHTML = `<strong>${key}:</strong> ${value}`;
-                details.appendChild(p);
+    document.addEventListener('DOMContentLoaded', () => {
+        // Configurarea Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyACOnUAzI_3whGLdgPicBZ4KTKnLCIJZ0s",
+            authDomain: "tasteit-d72f7.firebaseapp.com",
+            databaseURL: "https://tasteit-d72f7-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "tasteit-d72f7",
+            storageBucket: "tasteit-d72f7.appspot.com",
+            messagingSenderId: "516411013938",
+            appId: "1:516411013938:web:64edefef8e802e1316b52b"
+        };
+
+        // Inițializarea Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        async function displayRequests() {
+            const dataList = document.getElementById('dataList');
+            dataList.innerHTML = ''; // Clear existing content
+            console.log("Fetching documents...");
+
+            try {
+                const querySnapshot = await getDocs(collection(db, 'requests'));
+                console.log("Documents fetched: ", querySnapshot.size);
+                querySnapshot.forEach((docSnapshot) => {
+                    const request = docSnapshot.data();
+                    console.log("Document data: ", request);
+                    const listItem = document.createElement('li');
+                    listItem.classList.add('list-group-item', 'request-item');
+
+                    const details = document.createElement('div');
+                    details.classList.add('request-details');
+                    for (const [key, value] of Object.entries(request)) {
+                        const p = document.createElement('p');
+                        p.innerHTML = `<strong>${key}:</strong> ${value}`;
+                        details.appendChild(p);
+                    }
+
+                    const deleteButton = document.createElement('button');
+                    deleteButton.classList.add('btn', 'btn-danger', 'btn-sm');
+                    deleteButton.textContent = 'Șterge';
+                    deleteButton.setAttribute('data-id', docSnapshot.id);
+                    deleteButton.addEventListener('click', async (event) => {
+                        const id = event.target.getAttribute('data-id');
+                        await deleteDoc(doc(db, 'requests', id));
+                        displayRequests(); // Refresh the list
+                    });
+
+                    listItem.appendChild(details);
+                    listItem.appendChild(deleteButton);
+                    dataList.appendChild(listItem);
+
+                    const separator = document.createElement('hr');
+                    dataList.appendChild(separator);
+                });
+            } catch (e) {
+                console.error("Error fetching documents: ", e);
             }
+        }
 
-            const deleteButton = document.createElement('button');
-            deleteButton.classList.add('btn', 'btn-danger', 'btn-sm');
-            deleteButton.textContent = 'Șterge';
-            deleteButton.addEventListener('click', () => {
-                deleteRequest(index);
-            });
-
-            listItem.appendChild(details);
-            listItem.appendChild(deleteButton);
-            dataList.appendChild(listItem);
-
-            const separator = document.createElement('hr');
-            dataList.appendChild(separator);
-        });
-    }
-
-    function deleteRequest(index) {
-        let requests = JSON.parse(localStorage.getItem('requests')) || [];
-        requests.splice(index, 1);
-        localStorage.setItem('requests', JSON.stringify(requests));
-        displayRequests(); // Refresh the list
-    }
-
-    // Display requests on page load
-    document.addEventListener('DOMContentLoaded', displayRequests);
+        // Display requests on page load
+        displayRequests();
+    });
 </script>
-
 </body>
 </html>

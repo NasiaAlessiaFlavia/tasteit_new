@@ -88,12 +88,31 @@
      
         <p>2024 TasteIt.Restaurante &copy; Drepturi de autor.</p>
 </footer>
-<script>
+
+<script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
+    import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+
+    // Configurarea Firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyACOnUAzI_3whGLdgPicBZ4KTKnLCIJZ0s",
+        authDomain: "tasteit-d72f7.firebaseapp.com",
+        databaseURL: "https://tasteit-d72f7-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "tasteit-d72f7",
+        storageBucket: "tasteit-d72f7.appspot.com",
+        messagingSenderId: "516411013938",
+        appId: "1:516411013938:web:64edefef8e802e1316b52b"
+    };
+
+    // Inițializarea Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
     document.getElementById('showForm').addEventListener('click', function() {
         document.getElementById('formContainer').style.display = 'block';
     });
 
-    document.getElementById('contactForm').addEventListener('submit', function (event) {
+    document.getElementById('contactForm').addEventListener('submit', async function (event) {
         event.preventDefault();
 
         const restaurantName = document.getElementById('contactRestaurantName').value;
@@ -108,14 +127,16 @@
             phone
         };
 
-        let requests = localStorage.getItem('requests');
-        requests = requests ? JSON.parse(requests) : [];
-        requests.push(newRequest);
-        localStorage.setItem('requests', JSON.stringify(requests));
-
-        window.location.href = 'contactare.html';
+        try {
+            // Adaugă un nou document în colecția "requests"
+            const docRef = await addDoc(collection(db, 'requests'), newRequest);
+            console.log("Document written with ID: ", docRef.id);
+            window.location.href = 'contactare.html';
+        } catch (e) {
+            console.error("Error adding document: ", e);
+            alert("Error adding document: " + e.message);
+        }
     });
 </script>
-
 </body>
 </html
