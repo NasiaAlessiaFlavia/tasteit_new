@@ -1,0 +1,254 @@
+h1{
+    font-size: 60px;
+    color: antiquewhite;
+    text-align: center;
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  font-style: italic;
+    text-shadow: 2px 2px 5px peru;
+}
+
+
+header{
+
+    backdrop-filter: blur(110px);
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:5px 50px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+    
+}
+ header ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap:60px;
+    
+ }
+ header ul li a {
+    text-decoration: none;
+    color: antiquewhite;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+header ul li a:hover {
+    color: peru;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    font-family: Brush Script MT, Brush Script Std;
+    text-align: center;
+    color: aliceblue;
+    padding: 40px;
+    backdrop-filter: blur(110px);
+    font-size: 40px;
+    color: antiquewhite;
+    text-align: center;
+    font-family: Brush Script MT, Brush Script Std, cursive;
+    font-style: italic;
+    text-shadow: 2px 2px 5px peru;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('img/pozafundal.jpg');
+    background-size: cover;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Face ca secțiunea main să ocupe întreaga înălțime a ecranului */
+}
+
+.register-container {
+    width: 400px;
+    margin: 10px;
+    padding: 20px;
+    backdrop-filter: blur(130px);
+    border-radius: 25px;
+    flex-direction: column; /* Aliniere verticală */
+    align-items: center; /* Aliniere pe orizontală */
+}
+
+h2 {
+    text-align: center;
+    color: antiquewhite;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex; /* Aliniere pe orizontală */
+    align-items: center;
+}
+
+.form-group i {
+    color: white;
+    margin-left: 10px; /* Spațiu între input și icon */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    background-color: antiquewhite;
+    border: 3px solid black;
+    border-radius: 10px;
+    flex: 1; /* Face ca input-ul să ocupe spațiul disponibil */
+    text-align: center;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: peru;
+    color: #fff;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: burlywood;
+}
+
+.login-link {
+    text-align: center;
+}
+
+.login-link a {
+    color: white;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+.login-link p {
+    color: white;
+}
+
+/* Stiluri de bază pentru header */
+header {
+    display: flex;
+    justify-content: space-between;
+    
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1050;
+    width: 100%;
+    backdrop-filter: blur(110px);
+    height: auto; /* Permite header-ului să se ajusteze în înălțime */
+    
+}
+
+
+header .navbar-brand {
+    margin-right: auto; /* Asigură că brand-ul nu împinge alte elemente */
+    font-size: 32px; /* Reducem dimensiunea pe toate ecranele, apoi ajustăm specific prin media queries */
+    white-space: nowrap; /* Prevenim ruperea textului */
+    color: antiquewhite;
+    text-align: center;
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  font-style: italic;
+    text-shadow: 2px 2px 5px peru;
+}
+
+
+header ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap; /* Permite elementelor să se înfășoare pe ecranul mic */
+    gap: 10px; /* Reduce spațiul între elemente */
+    padding: 10px 0;
+    margin: 0 10px 0 0; /* Ajustează marginile pentru a alinia corect */
+    list-style: none;
+}
+
+header ul li a {
+    padding: 10px;
+    font-size: 16px; /* Micșorează textul pentru a economisi spațiu */
+}
+
+header ul li a:hover {
+    color: peru;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    header .navbar-brand {
+        font-size: 32px; /* Dimensiune redusă pentru spații mici */
+    }
+
+    header ul {
+        flex-direction: column;
+        align-items: center;
+         /* Alinează elementele vertical pentru o vizualizare mai bună */
+        width: 100%;
+        padding: 20px 0; 
+    }
+
+    header ul li a {
+        font-size: 18px; /* Text mai mic pentru economisirea spațiului */
+        padding: 8px 0; /* Padding vertical pentru a facilita interacțiunea */
+    }
+
+    /* Aplică fundalul întunecat numai când navbar-ul este colapsat */
+    .navbar-collapse {
+        background-color: rgba(0, 0, 0, 0.95); /* Fundal semitransparent pentru a crește vizibilitatea textului */
+        margin-top: 10px; /* Spațiu suplimentar pentru estetică */
+    }
+
+    .navbar-toggler {
+        z-index: 1051; /* Asigură că toggler-ul este vizibil peste meniu */
+    }
+}
+
+/* Stiluri pentru ajustarea coloanelor pe diferite dimensiuni de ecran */
+@media (max-width: 767px) {
+    .col-md-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .col-md-3 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .col-md-3 {
+        flex: 0 0 33.3333%;
+        max-width: 33.3333%;
+    }
+}
+
+/* Asigurarea că imaginile sunt responsabile */
+img {
+    max-width: 100%;
+    height: auto;
+}

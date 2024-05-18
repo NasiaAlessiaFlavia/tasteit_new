@@ -1,0 +1,193 @@
+h1{
+    font-size: 60px;
+    color: antiquewhite;
+    text-align: center;
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  font-style: italic;
+    text-shadow: 2px 2px 5px peru;
+}
+
+
+header{
+
+    backdrop-filter: blur(110px);
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:5px 50px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+    
+}
+ header ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap:60px;
+    
+ }
+ header ul li a {
+    text-decoration: none;
+    color: antiquewhite;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+header ul li a:hover {
+    color: peru;
+}
+
+.section-with-background {
+    background-image: url('img/backround_index.jpg');
+    background-size: cover;
+    height: 70vh; /* Înălțimea elementului să fie 100% din înălțimea vizibilă a ecranului */
+    display: flex; /* Utilizăm flexbox pentru a centra vertical conținutul */
+    justify-content: center; /* Centrare orizontală */
+    align-items: center; /* Centrare verticală */
+}
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('img/pozafundal.jpg');
+    background-size: cover;
+    margin:0;
+
+}
+
+
+html{
+    scroll-behavior: smooth;
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.animated-text {
+    animation: moveText 2s infinite alternate; /* Adaugă o animație la text */
+}
+
+@keyframes moveText {
+    0% {
+        transform: translateX(-5%);
+    }
+    100% {
+        transform: translateX(5%);
+    }
+}
+.text-light{
+    font-family: 'Montserrat', sans-serif; /* Înlocuirea fontului cu Montserrat */
+
+    text-shadow: 10px 10px 10px peru;
+
+
+}
+
+footer{
+
+    font-family: Brush Script MT, Brush Script Std ;
+    text-align: center;
+    color: aliceblue;
+    padding: 40px;
+    backdrop-filter : blur(110px);
+    font-size: 40px;
+    color: antiquewhite;
+    text-align: center;
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  font-style: italic;
+  text-shadow: 2px 2px 5px peru;
+   
+}
+
+/* Stiluri de bază pentru header */
+header {
+    backdrop-filter: blur(110px);
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 50px;
+    position: relative;
+    z-index: 1050; /* Crește z-index pentru a asigura că header-ul este deasupra altor elemente */
+    width: 100%;
+}
+
+/* Stilizarea specifică pentru navbar-brand */
+header .navbar-brand {
+    font-size: 32px;
+    color: antiquewhite;
+    text-align: center;
+    font-family: 'Brush Script MT', cursive;
+    font-style: italic;
+    text-shadow: 2px 2px 5px peru;
+}
+
+/* Stiluri pentru linkurile din navbar */
+header ul li a {
+    text-decoration: none;
+    color: antiquewhite;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+header ul li a:hover {
+    color: peru;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    header .navbar-brand {
+        font-size: 32px; /* Dimensiune redusă pentru spații mici */
+    }
+
+    header ul {
+        flex-direction: column;
+        align-items: center; /* Alinează elementele vertical pentru o vizualizare mai bună */
+        width: 100%;
+    }
+
+    header ul li a {
+        font-size: 18px; /* Text mai mic pentru economisirea spațiului */
+        padding: 8px 0; /* Padding vertical pentru a facilita interacțiunea */
+    }
+
+    /* Aplică fundalul întunecat numai când navbar-ul este colapsat */
+    .navbar-collapse {
+        background-color: rgba(0, 0, 0, 0.8); /* Fundal semitransparent pentru a crește vizibilitatea textului */
+        margin-top: 10px; /* Spațiu suplimentar pentru estetică */
+    }
+
+    .navbar-toggler {
+        z-index: 1051; /* Asigură că toggler-ul este vizibil peste meniu */
+    }
+}
+
+/* Stiluri pentru ajustarea coloanelor pe diferite dimensiuni de ecran */
+@media (max-width: 767px) {
+    .col-md-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .col-md-3 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .col-md-3 {
+        flex: 0 0 33.3333%;
+        max-width: 33.3333%;
+    }
+}
+
+/* Asigurarea că imaginile sunt responsabile */
+img {
+    max-width: 100%;
+    height: auto;
+}

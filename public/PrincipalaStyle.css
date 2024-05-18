@@ -1,0 +1,451 @@
+
+
+h1{
+    font-size: 60px;
+    color: antiquewhite;
+    text-align: center;
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  font-style: italic;
+    text-shadow: 2px 2px 5px peru;
+}
+
+
+header{
+
+    backdrop-filter: blur(110px);
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+    
+}
+ header ul {
+
+    margin: 0 auto; /* Centrează lista */
+    padding: 0;
+
+    justify-content: center;
+    list-style: none;
+    display: flex;
+    width: 100%;
+    gap:60px;
+    
+ }
+ header ul li a {
+    padding: 10px 15px; /* Ajustează padding-ul pentru a optimiza spațiul */
+    white-space: nowrap;
+    text-decoration: none;
+    color: antiquewhite;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+header ul li a:hover {
+    color: peru;
+}
+.main-content {
+    text-align: center;
+ 
+    background-image: url('img/slide2.jpg');
+    background-size: cover;
+    background-position: center center; /* Centrează imaginea atât vertical, cât și orizontal */
+    padding: 140px 50px; /* Ajustează spațiul între conținut și marginea div-ului */
+}
+
+.main-content h2 {
+    font-size: 24px;
+    font-family:rush Script MT, Brush Script Std, cursive;
+    color: antiquewhite;
+    text-align: center;
+   font-style: italic;
+    text-shadow: 2px 2px 5px peru;
+}
+
+.explore-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color:antiquewhite; /* Schimbă culoarea butonului după necesități */
+    color:grey;
+    border-radius: 5px;
+    
+}
+
+.explore-button:hover {
+   
+    background-color:peru; 
+    color:peachpuff;
+    box-shadow:  10px 10px 10px peachpuff;
+}
+
+ 
+ .popular-places{
+    background-color: antiquewhite;
+    padding: 50px 0;
+    text-align: center;
+    
+ }
+
+ @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.popular-places .container .row .col-md-3 {
+    display: block; /* sau inline-block, dacă preferi */
+    animation: fadeIn 1s ease forwards; /* Aplică animația la fiecare element nou */
+}
+
+.col-md-3.mb-4 {
+    opacity: 0; /* start invisible */
+    transition: opacity 1s ease; /* animate opacity */
+}
+
+/* Optional: Animate entry from below */
+.col-md-3.mb-4 {
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+
+
+ /* Stilizare generală a cardurilor */
+.card {
+    border: none;
+    transition: transform 0.3s ease;
+    height: 450px; /* Înălțime fixă pentru toate cardurile */
+    overflow: hidden; /* Ascunde conținutul care depășește limitele cardului */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efect de ridicare la hover */
+    color: #ff7f50;
+    box-shadow: 10px 10px 15px peru; 
+}
+
+/* Stilizare titlu card */
+.card-title {
+    font-weight: bold;
+}
+
+/* Stilizare buton */
+/* Stilizare buton */
+.card-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: peru; /* Schimbă culoarea de fundal */
+    color: white; /* Schimbă culoarea textului */
+    border: none; /* Elimină conturul butonului */
+    border-radius: 5px; /* Adaugă o mică curbă la marginile butonului */
+    font-size: 16px; /* Mărimea textului */
+    cursor: pointer; /* Indicator de cursor la interacțiune */
+    transition: background-color 0.3s ease; /* Efect de tranziție pentru culoarea de fundal la hover */
+}
+
+/* Stilizare buton la hover */
+.card-button:hover {
+    color: aliceblue;
+    background-color: burlywood; /* Schimbă culoarea de fundal la hover */
+}
+/* Stilizare imagine card */
+.card-img-top {
+    height: 200px; /* Înălțime fixă pentru imaginea din card */
+    object-fit: cover; /* Asigură că imaginea este întotdeauna complet vizibilă */
+}
+
+.reservation-section {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+    
+}
+
+.reservation-step {
+    text-align: center;
+}
+
+.reservation-step i {
+    font-size: 48px;
+    color: #ff7f50; /* Culoarea iconului */
+    margin-bottom: 20px;
+}
+
+.reservation-step h3 {
+    font-size: 24px;
+    color: #333; /* Culoarea titlului */
+    margin-bottom: 10px;
+}
+
+.reservation-step p {
+    font-size: 18px;
+    color: #666; /* Culoarea textului */
+}
+/*load more button*/
+#load-more{
+    margin-top: 20px;
+    display:inline-block;
+    padding: 10px 30px;
+    border: 1px solid black ;
+    color: darksalmon;
+    font-size: 16px;
+    background-color:bisque;
+    cursor: pointer;
+
+
+
+}
+#load-more:hover{
+    background-color: peru;
+    border-color:black;
+    color:yellow;
+    box-shadow: 10px 15px 15px orange;
+}
+
+/*show less button */
+#show-less button {
+    margin-top: 20px;
+    display: none;
+    padding: 10px 30px;
+    border: 1px solid black;
+    color: darksalmon;
+    font-size: 16px;
+    background-color: bisque;
+    cursor: pointer;
+}
+
+#show-less button:hover {
+    background-color: peru;
+    border-color: black;
+    color: yellow;
+    box-shadow: 10px 15px 15px orange;
+}
+/*recenzii card*/
+.rating {
+    color: #f0e130; /* Culorile galben deschis sunt frecvent folosite pentru stele */
+    font-size: 24px; /* Ajustează dimensiunea stelelor */
+}
+
+.rating i {
+    margin-right: 3px; /* Adaugă spațiu între steluțe */
+}
+
+
+
+
+.business-solutions {
+    background-color:gray;
+    padding: 50px 0;
+}
+
+.business-solutions .container {
+    text-align: center;
+}
+
+.business-solutions h2 {
+    font-size: 32px;
+    color:orange;
+    margin-bottom: 20px ;
+    
+    
+    
+}
+
+.business-solutions a {
+    font-size: 18px;
+    color:oldlace;
+}
+.business-solutions a:hover{
+    color: oldlace;
+    box-shadow:0 10px 10px peru;
+}
+
+  
+*{
+    
+ 
+    margin: 0;
+    padding: 0;
+    
+   
+}
+footer{
+
+    font-family: Brush Script MT, Brush Script Std ;
+    text-align: center;
+    color: aliceblue;
+    padding: 40px;
+    backdrop-filter : blur(110px);
+    font-size: 40px;
+    color: antiquewhite;
+    text-align: center;
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  font-style: italic;
+  text-shadow: 2px 2px 5px peru;
+   
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('img/pozafundal.jpg');
+    background-size: cover;
+    margin:0;
+
+}
+
+
+html{
+    scroll-behavior: smooth;
+}
+
+/* Modal styling */
+.modal-content {
+    background-color: #f8f9fa; /* fundal mai deschis pentru vizibilitate îmbunătățită */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* adaugă o umbră pentru efect de elevație */
+}
+
+.modal-header {
+    background: #704c07; /* capul modalului cu o culoare distinctă */
+    color: #ffffff;
+}
+
+.modal-footer {
+    background: #f1f1f1;
+    border-top: 1px solid #dee2e6;
+}
+
+.form-control {
+    border-radius: 0.25rem;
+    border: 1px solid #ced4da;
+    padding: 0.375rem 0.75rem;
+}
+
+.btn-primary {
+    background-color: #815b09;
+    border-color: #5a4407;
+}
+
+.btn-primary:hover {
+    background-color: #754200;
+    border-color: #5c4807;
+}
+
+
+
+
+
+/* Stiluri de bază pentru header */
+header {
+    display: flex;
+    justify-content: space-between;
+    
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1050;
+    width: 100%;
+    backdrop-filter: blur(110px);
+    height: auto; /* Permite header-ului să se ajusteze în înălțime */
+    
+}
+
+
+header .navbar-brand {
+    margin-right: auto; /* Asigură că brand-ul nu împinge alte elemente */
+    font-size: 32px; /* Reducem dimensiunea pe toate ecranele, apoi ajustăm specific prin media queries */
+    white-space: nowrap; /* Prevenim ruperea textului */
+    color: antiquewhite;
+    text-align: center;
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  font-style: italic;
+    text-shadow: 2px 2px 5px peru;
+}
+
+
+header ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap; /* Permite elementelor să se înfășoare pe ecranul mic */
+    gap: 10px; /* Reduce spațiul între elemente */
+    padding: 10px 0;
+    margin: 0 10px 0 0; /* Ajustează marginile pentru a alinia corect */
+    list-style: none;
+}
+
+header ul li a {
+    padding: 10px;
+    font-size: 16px; /* Micșorează textul pentru a economisi spațiu */
+}
+
+header ul li a:hover {
+    color: peru;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    header .navbar-brand {
+        font-size: 32px; /* Dimensiune redusă pentru spații mici */
+    }
+
+    header ul {
+        flex-direction: column;
+        align-items: center;
+         /* Alinează elementele vertical pentru o vizualizare mai bună */
+        width: 100%;
+        padding: 20px 0; 
+    }
+
+    header ul li a {
+        font-size: 18px; /* Text mai mic pentru economisirea spațiului */
+        padding: 8px 0; /* Padding vertical pentru a facilita interacțiunea */
+    }
+
+    /* Aplică fundalul întunecat numai când navbar-ul este colapsat */
+    .navbar-collapse {
+        background-color: rgba(0, 0, 0, 0.95); /* Fundal semitransparent pentru a crește vizibilitatea textului */
+        margin-top: 10px; /* Spațiu suplimentar pentru estetică */
+    }
+
+    .navbar-toggler {
+        z-index: 1051; /* Asigură că toggler-ul este vizibil peste meniu */
+    }
+}
+
+/* Stiluri pentru ajustarea coloanelor pe diferite dimensiuni de ecran */
+@media (max-width: 767px) {
+    .col-md-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .col-md-3 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .col-md-3 {
+        flex: 0 0 33.3333%;
+        max-width: 33.3333%;
+    }
+}
+
+/* Asigurarea că imaginile sunt responsabile */
+img {
+    max-width: 100%;
+    height: auto;
+}

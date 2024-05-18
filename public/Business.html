@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="BusinessStyles.css">
+    <!----- icons link -------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" >
+
+   <!---Bootstrap link -->
+   <!------ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+----->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+    <header class="navbar navbar-expand-lg navbar-dark" style="background: transparent;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fa-solid fa-utensils"></i> TasteIt.Restaurante
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    
+                    <li class="nav-item"><a class="nav-link" href="homeAdmin.html">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bookingadmin.html">BOOK TABLE</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contactSubmission.html">CERERI</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </header>
+
+   <main>
+<section>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="image-container">
+                <img src="img/business.jpg" alt="Imagine restaurant" class="img-fluid">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="description">
+                <p class="special-title">TasteIt.Restaurante Business - Adauga restaurant nou</p>
+                
+                <button id="showForm">Incepe Acum <i class="fa-solid fa-arrow-right"></i></button>
+                <div id="formContainer" style="display: none;">
+                    <h2 class="mb-4">Adaugă Restaurant</h2>
+                    <form id="addRestaurantForm">
+                        <div class="mb-3">
+                            <label for="restaurantName" class="form-label">Nume Restaurant</label>
+                            <input type="text" class="form-control" id="restaurantName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Descriere Scurtă</label>
+                            <textarea class="form-control" id="description" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="numSeats" class="form-label">Număr de Locuri</label>
+                            <input type="number" class="form-control" id="numSeats" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Adresa</label>
+                            <input type="text" class="form-control" id="address" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="googleMaps" class="form-label">Google Maps URL</label>
+                            <input type="url" class="form-control" id="googleMaps">
+                        </div>
+                        <div class="mb-3">
+                            <label for="logoFile" class="form-label">Logo</label>
+                            <input type="file" class="form-control" id="logoFile">
+                        </div>
+                
+                        <div class="mb-3">
+                            <h4>Program</h4>
+                            <div id="scheduleContainer"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Adaugă</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const logoInputTypeSelector = document.getElementById('logoInputType');
+    const logoInputContainer = document.getElementById('logoInputContainer');
+
+    function updateLogoInput() {
+        logoInputContainer.innerHTML = ''; // Curăță conținutul actual
+        if (logoInputTypeSelector.value === 'file') {
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.className = 'form-control';
+            logoInputContainer.appendChild(fileInput);
+        } else if (logoInputTypeSelector.value === 'url') {
+            const urlInput = document.createElement('input');
+            urlInput.type = 'text';
+            urlInput.className = 'form-control';
+            urlInput.placeholder = 'Introdu URL-ul imaginii';
+            logoInputContainer.appendChild(urlInput);
+        }
+    }
+
+    // Atașează event listener pentru schimbarea selecției
+    logoInputTypeSelector.addEventListener('change', updateLogoInput);
+
+    // Apel inițial pentru a seta input-ul conform valorii inițiale a selectorului
+    updateLogoInput();
+});
+
+
+   document.getElementById('showForm').addEventListener('click', function() {
+    var formContainer = document.getElementById('formContainer');
+    var showButton = document.getElementById('showForm');
+    
+    // Ascunde butonul
+    showButton.style.display = 'none';
+    
+    // Afișează formularul
+    formContainer.style.display = 'block';
+});
+document.addEventListener('DOMContentLoaded', function() {
+            const daysOfWeek = ['luni', 'marti', 'miercuri', 'joi', 'vineri', 'sambata', 'duminica']; // Modificat pentru a folosi litere mici
+
+            const scheduleContainer = document.getElementById('scheduleContainer');
+            
+            daysOfWeek.forEach(day => {
+                const dayDiv = document.createElement('div');
+                dayDiv.className = 'mb-3';
+                dayDiv.innerHTML = `
+                    <label class="form-label">${day}</label>
+                    <div class="d-flex">
+                        <select class="form-select me-2" id="${day.toLowerCase()}Start"></select>
+                        <select class="form-select" id="${day.toLowerCase()}End"></select>
+                    </div>
+                `;
+                scheduleContainer.appendChild(dayDiv);
+                
+                const startSelect = dayDiv.querySelector(`#${day.toLowerCase()}Start`);
+                const endSelect = dayDiv.querySelector(`#${day.toLowerCase()}End`);
+                
+                for (let hour = 0; hour < 24; hour++) {
+                    for (let minute of ['00', '15']) {
+                        const value = `${hour.toString().padStart(2, '0')}:${minute}`;
+                        startSelect.options.add(new Option(value, value, hour === 11 && minute === '00', hour === 11 && minute === '00'));
+                        endSelect.options.add(new Option(value, value, hour === 22 && minute === '00', hour === 22 && minute === '00'));
+                    }
+                }
+            });
+        });
+</script>
+<script type="module" src="js/business.js"></script>
+</main>
+     <footer class="header_footer_backround">
+     
+        <p>2024 TasteIt.Restaurante &copy; Drepturi de autor.</p>
+</footer>
+
+</body>
+</html

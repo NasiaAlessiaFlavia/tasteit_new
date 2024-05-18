@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Înregistrare</title>
+    <link rel="stylesheet" href="ResisterStyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
+</head>
+<body>
+
+    <header class="navbar navbar-expand-lg navbar-dark" style="background: transparent;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fa-solid fa-utensils"></i> TasteIt.Restaurante
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">WELCOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="LogIn.html">LOGIN</a></li>
+                   
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="register-container">
+            <h2>Înregistrare</h2>
+            <form >
+                <div class="form-group">
+                    <input type="text" id="register-username" placeholder="Username" required>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="register-email" placeholder="Email" required>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" id="register-password" placeholder="Parolă" required>
+                    <i class="fa-solid fa-lock"></i>        
+                </div>
+
+                <div class="form-group">
+                    <input type="password" id="register-password-confirm" placeholder="Confirmare parolă" required>
+                    <i class="fa-solid fa-lock"></i>        
+                </div>
+
+                <div class="form-group">
+                    <input type="text" id="register-fullname" placeholder="Nume complet" required>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" id="register-phone" placeholder="Telefon" required>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+
+                <div class="form-group">
+                    <input type="date" id="register-dob" placeholder="Data nașterii" required>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <button type="submit">Înregistrare</button>
+            </form>
+            <div class="login-link">
+                <p>Ai deja cont? | <a href="login.html">Autentificare</a></p>
+            </div>
+        </div>
+    </main>
+    
+    <script src="js/Register.js" type="module"></script>
+
+    <footer>
+        <p>2024 TasteIt.Restaurante &copy; Drepturi de autor.</p>
+    </footer>
+
+</body>
+</html>
