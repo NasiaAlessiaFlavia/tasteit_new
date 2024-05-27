@@ -1,8 +1,8 @@
-// Importarea SDK-urilor Firebase necesare
+
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
 import { getFirestore, collection, getDocs, query, where, addDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
-import { getAuth, signInWithEmailAndPassword, signOut } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';  // Import additional functions for auth
-// Configurarea Firebase
+import { getAuth, signInWithEmailAndPassword, signOut } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js'; 
+
 const firebaseConfig = {
     apiKey: "AIzaSyACOnUAzI_3whGLdgPicBZ4KTKnLCIJZ0s",
     authDomain: "tasteit-d72f7.firebaseapp.com",
@@ -13,19 +13,19 @@ const firebaseConfig = {
     appId: "1:516411013938:web:64edefef8e802e1316b52b"
 };
 
-// Inițializarea Firebase
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const auth = getAuth(app);  // Inițializează serviciul de autentificare
+const auth = getAuth(app);  
  
 
 document.getElementById('logout-button').addEventListener('click', function() {
   getAuth().signOut().then(() => {
-      // Logout successful
+     
       alert('Deconectare reușită!');
-      window.location.href = 'index.html'; // Redirecționează la pagina de bun venit după logout
+      window.location.href = 'index.html'; 
   }).catch((error) => {
-      // An error happened during logout
+  
       console.error('Eroare la deconectare:', error);
       alert('Eroare la logout: ' + error.message);
   });
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     let allData = [];
     let isShowingMore = false;
 
-    // Inițializarea datei cu ziua curentă și setarea limitei pentru selecția datelor anterioare
+   
     const today = new Date();
     const todayStr = today.toISOString().substring(0, 10);
     const dateInput = document.getElementById('reservationDate');
@@ -58,17 +58,17 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     dateInput.addEventListener('change', function() {
         const selectedDate = new Date(dateInput.value);
-        setupTimeOptions(selectedDate);  // Actualizăm opțiunile de timp în funcție de data selectată
+        setupTimeOptions(selectedDate);  
     });
 
     async function loadRestaurants() {
         const querySnapshot = await getDocs(collection(db, "restaurants"));
         allData = querySnapshot.docs.map(doc => doc.data());
-        displayItems(); // Afișează primele 4 restaurante
+        displayItems(); 
     }
 
     function displayItems() {
-        container.innerHTML = ''; // Curăță lista curentă
+        container.innerHTML = ''; 
         let limit = isShowingMore ? 8 : 4;
         allData.slice(0, limit).forEach(data => {
           const safeId = data.name.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9\-]/g, '');
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         `; 
             container.appendChild(cardElement);
             cardElement.querySelector('.card-button').addEventListener('click', () => showDetails(data));
-            // Adaugă event listener pentru butonul de favorite
+            
             document.getElementById(`favorite-${safeId}`).addEventListener('click', () => addToFavorites(data));
             
         });
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         document.getElementById('restaurantName').textContent = data.name;
         document.getElementById('restaurantDescription').textContent = data.description;
   
-        // Handle the schedule and setup reservation time options
+        
         const scheduleElement = document.getElementById('restaurantHours');
         let scheduleHtml = '';
         if (data.schedule && typeof data.schedule === 'object') {
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 }
             }
             scheduleElement.innerHTML = scheduleHtml;
-            setupTimeOptions(today);  // Se asigură că timpurile sunt stabilite corect la deschiderea detaliilor
+            setupTimeOptions(today);  
         } else {
             scheduleElement.textContent = "Schedule not available";
         }
@@ -144,8 +144,8 @@ document.addEventListener('DOMContentLoaded', async function() {
 
   function addToFavorites(data) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    // Asigură-te că adaugi numai numele restaurantului ca un string
-    const restaurantName = data.name.toString(); // Convertește orice tip de date în string
+   
+    const restaurantName = data.name.toString(); 
 
     if (!favorites.includes(restaurantName)) {
         favorites.push(restaurantName);
@@ -177,10 +177,10 @@ document.addEventListener('DOMContentLoaded', async function() {
             hourSelect.innerHTML = '';
             minuteSelect.innerHTML = '';
   
-            // Popularea selectoarelor pentru oră
+            
             for (let hour = startTime; hour <= endTime; hour++) {
                 if (date.toISOString().substring(0, 10) === todayStr && hour < currentHour) {
-                    continue;  // Nu include orele care au trecut în ziua curentă
+                    continue;  
                 }
                 let option = document.createElement('option');
                 option.value = hour;
@@ -188,10 +188,10 @@ document.addEventListener('DOMContentLoaded', async function() {
                 hourSelect.appendChild(option);
             }
   
-            // Setează ora implicită la prima disponibilă
+           
             hourSelect.value = hourSelect.firstChild ? hourSelect.firstChild.value : startTime.toString();
   
-            // Popularea selectoarelor pentru minut
+           
             for (let minute = 0; minute < 60; minute += 30) {
                 let option = document.createElement('option');
                 option.value = minute;
@@ -199,10 +199,10 @@ document.addEventListener('DOMContentLoaded', async function() {
                 minuteSelect.appendChild(option);
             }
   
-            // Setează minutul implicit la "00"
+            
             minuteSelect.value = "0";
   
-            // Actualizare locuri disponibile
+            
             const reservationDate = document.getElementById('reservationDate').value;
             const reservationTime = `${hourSelect.value}:${minuteSelect.value}`;
             const restaurantName = document.getElementById('restaurantName').textContent;
@@ -218,11 +218,11 @@ document.addEventListener('DOMContentLoaded', async function() {
   
   async function fetchRestaurantByName(restaurantName) {
     try {
-      // Colecția din care vrem să extragem date
+      
       const restaurantCollection = collection(db, 'restaurants');
-      // Creăm un query cu filtru
+    
       const filteredQuery = query(restaurantCollection, where('name', '==', restaurantName.trim()));
-      // Obținem toate documentele care respectă query-ul
+     
       const querySnapshot = await getDocs(filteredQuery);
       
       if (querySnapshot.empty) {
@@ -230,8 +230,8 @@ document.addEventListener('DOMContentLoaded', async function() {
         alert('Restaurant data not found.');
         return null;
       } else {
-        // Assuming the first document found is the correct one
-        return querySnapshot.docs[0];  // Returnăm datele primului document găsit
+       
+        return querySnapshot.docs[0];  
       }
     } catch (error) {
       console.error('Failed to fetch restaurant by name:', error);
@@ -265,7 +265,7 @@ document.addEventListener('DOMContentLoaded', async function() {
       return;
     }
   
-    // Fetch restaurant data
+ 
     const restaurantDoc = await fetchRestaurantByName(restaurantName);
     if (!restaurantDoc) {
       alert('Restaurant data not found.');
@@ -287,7 +287,7 @@ document.addEventListener('DOMContentLoaded', async function() {
       return;
     }
   
-    // Add new reservation
+    
     await addDoc(reservationsRef, {
       restaurantName: restaurantName,
       customerName: customerName,
@@ -327,7 +327,7 @@ document.addEventListener('DOMContentLoaded', async function() {
   }
   
   document.getElementById('makeReservationButton').addEventListener('click', () => {
-    makeReservation(); // Apelarea funcției de rezervare
+    makeReservation(); 
   });
   
   document.getElementById('reservationDate').addEventListener('change', () => {

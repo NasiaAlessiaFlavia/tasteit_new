@@ -92,12 +92,12 @@
 </div>
 </section>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    /*document.addEventListener('DOMContentLoaded', function() {
     const logoInputTypeSelector = document.getElementById('logoInputType');
     const logoInputContainer = document.getElementById('logoInputContainer');
 
     function updateLogoInput() {
-        logoInputContainer.innerHTML = ''; // Curăță conținutul actual
+        logoInputContainer.innerHTML = ''; 
         if (logoInputTypeSelector.value === 'file') {
             const fileInput = document.createElement('input');
             fileInput.type = 'file';
@@ -112,27 +112,25 @@
         }
     }
 
-    // Atașează event listener pentru schimbarea selecției
+    
     logoInputTypeSelector.addEventListener('change', updateLogoInput);
 
-    // Apel inițial pentru a seta input-ul conform valorii inițiale a selectorului
     updateLogoInput();
-});
+});*/
 
 
    document.getElementById('showForm').addEventListener('click', function() {
     var formContainer = document.getElementById('formContainer');
     var showButton = document.getElementById('showForm');
     
-    // Ascunde butonul
+  
     showButton.style.display = 'none';
     
-    // Afișează formularul
+
     formContainer.style.display = 'block';
 });
 document.addEventListener('DOMContentLoaded', function() {
-            const daysOfWeek = ['luni', 'marti', 'miercuri', 'joi', 'vineri', 'sambata', 'duminica']; // Modificat pentru a folosi litere mici
-
+            const daysOfWeek = ['luni', 'marti', 'miercuri', 'joi', 'vineri', 'sambata', 'duminica']; 
             const scheduleContainer = document.getElementById('scheduleContainer');
             
             daysOfWeek.forEach(day => {

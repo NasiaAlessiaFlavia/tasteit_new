@@ -51,7 +51,7 @@
                 <p class="special-title">TasteIt.Restaurante Business - aplicația #1 de rezervări pentru restaurantele din România</p>
                 <p class="special-text">PROFIT MAI MARE, CU ACELAȘI SPAȚIU.</p>
                 <p>Folosind TasteIt.Restaurante Business, restaurantul tău maximizează ocuparea meselor, iar clienții se bucură de libertate și rapiditate.</p>
-                <p>Sistemele noastre pentru management-ul rezervărilor și plăți rapide QR îți aduc eficiență și satisfacție, transformând fiecare vizită într-o experiență memorabilă.</p>
+                <p>Sistemele noastre pentru management-ul rezervărilor transformând fiecare vizită într-o experiență memorabilă.</p>
                 <button id="showForm">Incepe Acum <i class="fa-solid fa-arrow-right"></i></button>
                 <div id="formContainer" style="display: none;">
                     <h2 class="mb-4">Formular de contact</h2>
@@ -93,7 +93,7 @@
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
     import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
-    // Configurarea Firebase
+   
     const firebaseConfig = {
         apiKey: "AIzaSyACOnUAzI_3whGLdgPicBZ4KTKnLCIJZ0s",
         authDomain: "tasteit-d72f7.firebaseapp.com",
@@ -104,7 +104,7 @@
         appId: "1:516411013938:web:64edefef8e802e1316b52b"
     };
 
-    // Inițializarea Firebase
+    
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
@@ -128,7 +128,7 @@
         };
 
         try {
-            // Adaugă un nou document în colecția "requests"
+            
             const docRef = await addDoc(collection(db, 'requests'), newRequest);
             console.log("Document written with ID: ", docRef.id);
             window.location.href = 'contactare.html';

@@ -20,41 +20,40 @@ const firebaseConfig = {
   const auth = getAuth(app);
   const storage = getStorage(app)
 
-// Funcția de încărcare a fișierelor adaptată pentru utilizare generică
-// Funcția de încărcare a fișierelor adaptată pentru utilizare generică
+
 async function uploadFile(file, path) {
     if (!file) return '';
     const storageRef = ref(storage, `${path}/${file.name}`);
     try {
         const snapshot = await uploadBytes(storageRef, file);
-        // Obține URL-ul de download direct de la Firebase Storage
+       
         const downloadURL = await getDownloadURL(snapshot.ref);
-        return downloadURL; // Returnează URL-ul direct
+        return downloadURL; 
     } catch (error) {
         console.error('Error uploading file:', error);
         return '';
     }
 }
 
-// Event listener pentru formularul de adăugare a restaurantului
+
 document.getElementById('addRestaurantForm').addEventListener('submit', async function(event) {
     event.preventDefault();
 
-    await addRestaurant(); // Directly calling addRestaurant function
+    await addRestaurant(); 
 });
 
-// Funcția de adăugare a restaurantului, inclusiv încărcarea bannerului și a logo-ului
+
 async function addRestaurant() {
-    const fileInput = document.getElementById('logoFile'); // Ajustează ID-ul conform codului HTML actualizat
+    const fileInput = document.getElementById('logoFile'); 
     let logoUrl = '';
 
-    // Verifică dacă un fișier a fost încărcat
+    
     if (fileInput.files.length > 0) {
-        // Încarcă fișierul în Firebase Storage și obține URL-ul
+        
         logoUrl = await uploadFile(fileInput.files[0], 'logos');
     } else {
         alert('Vă rugăm să încărcați un logo.');
-        return; // Oprire dacă niciun fișier nu este selectat
+        return; 
     }
     const restaurantData = {
         name: document.getElementById('restaurantName').value.trim(),
@@ -63,7 +62,7 @@ async function addRestaurant() {
         address: document.getElementById('address').value.trim(),
         googleMaps: document.getElementById('googleMaps').value.trim(),
         numSeats:parseInt(document.getElementById('numSeats').value, 10),
-        logo: logoUrl, // Salvarea URL-ului logo-ului
+        logo: logoUrl, 
       
         schedule: collectScheduleData()
     };
@@ -78,14 +77,14 @@ async function addRestaurant() {
         const docRef = await addDoc(collection(db, "restaurants"), restaurantData);
         console.log("Restaurant adăugat cu ID: ", docRef.id);
         alert('Restaurant adăugat cu succes!');
-        window.location.href = 'Business.html'; // Redirect după adăugare
+        window.location.href = 'Business.html'; 
     } catch (error) {
         console.error('Eroare la adăugarea restaurantului:', error);
         alert('Eroare la adăugarea restaurantului: ' + error.message);
     }
 }
 
-// Funcția de colectare a datelor pentru program
+
 function collectScheduleData() {
     const daysOfWeek = ['luni', 'marti', 'miercuri', 'joi', 'vineri', 'sambata', 'duminica'];
     const schedule = {};

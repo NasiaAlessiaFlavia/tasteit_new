@@ -14,12 +14,11 @@ const firebaseConfig = {
     appId: "1:123456789:web:abcdef12345"
 };
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Add event listener to form submission
 document.getElementById('login-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -28,7 +27,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
 
     signInWithEmailAndPassword(auth, email, password)
     .then(async (userCredential) => {
-        // Login successful
+      
         const user = userCredential.user;
         const userDocRef = doc(db, 'users', user.uid);
         const userDoc = await getDoc(userDocRef);

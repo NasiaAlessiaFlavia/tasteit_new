@@ -25,7 +25,7 @@ header{
 }
  header ul {
 
-    margin: 0 auto; /* Centrează lista */
+    margin: 0 auto; 
     padding: 0;
 
     justify-content: center;
@@ -36,7 +36,7 @@ header{
     
  }
  header ul li a {
-    padding: 10px 15px; /* Ajustează padding-ul pentru a optimiza spațiul */
+    padding: 10px 15px; 
     white-space: nowrap;
     text-decoration: none;
     color: antiquewhite;
@@ -52,8 +52,8 @@ header ul li a:hover {
  
     background-image: url('img/slide2.jpg');
     background-size: cover;
-    background-position: center center; /* Centrează imaginea atât vertical, cât și orizontal */
-    padding: 140px 50px; /* Ajustează spațiul între conținut și marginea div-ului */
+    background-position: center center; 
+    padding: 140px 50px; 
 }
 
 .main-content h2 {
@@ -68,7 +68,7 @@ header ul li a:hover {
 .explore-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color:antiquewhite; /* Schimbă culoarea butonului după necesități */
+    background-color:antiquewhite; 
     color:grey;
     border-radius: 5px;
     
@@ -101,16 +101,16 @@ header ul li a:hover {
 }
 
 .popular-places .container .row .col-md-3 {
-    display: block; /* sau inline-block, dacă preferi */
-    animation: fadeIn 1s ease forwards; /* Aplică animația la fiecare element nou */
+    display: block; 
+    animation: fadeIn 1s ease forwards;
 }
 
 .col-md-3.mb-4 {
-    opacity: 0; /* start invisible */
-    transition: opacity 1s ease; /* animate opacity */
+    opacity: 0; 
+    transition: opacity 1s ease; 
 }
 
-/* Optional: Animate entry from below */
+
 .col-md-3.mb-4 {
     transform: translateY(20px);
     transition: opacity 1s ease, transform 1s ease;
@@ -118,37 +118,35 @@ header ul li a:hover {
 
 
 
- /* Stilizare generală a cardurilor */
 .card {
     border: none;
     transition: transform 0.3s ease;
-    height: 450px; /* Înălțime fixă pentru toate cardurile */
-    overflow: hidden; /* Ascunde conținutul care depășește limitele cardului */
+    height: 450px; 
+    overflow: hidden; 
 }
 
 .card:hover {
-    transform: translateY(-5px); /* Efect de ridicare la hover */
+    transform: translateY(-5px); 
     color: #ff7f50;
     box-shadow: 10px 10px 15px peru; 
 }
 
-/* Stilizare titlu card */
+
 .card-title {
     font-weight: bold;
 }
 
-/* Stilizare buton */
-/* Stilizare buton */
+
 .card-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: peru; /* Schimbă culoarea de fundal */
-    color: white; /* Schimbă culoarea textului */
-    border: none; /* Elimină conturul butonului */
-    border-radius: 5px; /* Adaugă o mică curbă la marginile butonului */
-    font-size: 16px; /* Mărimea textului */
-    cursor: pointer; /* Indicator de cursor la interacțiune */
-    transition: background-color 0.3s ease; /* Efect de tranziție pentru culoarea de fundal la hover */
+    background-color: peru; 
+    color: white; 
+    border: none; 
+    border-radius: 5px;
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
 }
 
 /* Stilizare buton la hover */
@@ -305,16 +303,16 @@ html{
     scroll-behavior: smooth;
 }
 
-/* Modal styling */
+
 .modal-content {
-    background-color: #f8f9fa; /* fundal mai deschis pentru vizibilitate îmbunătățită */
+    background-color: #f8f9fa; 
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* adaugă o umbră pentru efect de elevație */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
 }
 
 .modal-header {
-    background: #704c07; /* capul modalului cu o culoare distinctă */
+    background: #704c07; 
     color: #ffffff;
 }
 
@@ -343,7 +341,6 @@ html{
 
 
 
-/* Stiluri de bază pentru header */
 header {
     display: flex;
     justify-content: space-between;
@@ -355,15 +352,15 @@ header {
     z-index: 1050;
     width: 100%;
     backdrop-filter: blur(110px);
-    height: auto; /* Permite header-ului să se ajusteze în înălțime */
+    height: auto; 
     
 }
 
 
 header .navbar-brand {
-    margin-right: auto; /* Asigură că brand-ul nu împinge alte elemente */
-    font-size: 32px; /* Reducem dimensiunea pe toate ecranele, apoi ajustăm specific prin media queries */
-    white-space: nowrap; /* Prevenim ruperea textului */
+    margin-right: auto; 
+    font-size: 32px; 
+    white-space: nowrap; 
     color: antiquewhite;
     text-align: center;
   font-family: Brush Script MT, Brush Script Std, cursive;
@@ -376,53 +373,53 @@ header ul {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    flex-wrap: wrap; /* Permite elementelor să se înfășoare pe ecranul mic */
-    gap: 10px; /* Reduce spațiul între elemente */
+    flex-wrap: wrap; 
+    gap: 10px; 
     padding: 10px 0;
-    margin: 0 10px 0 0; /* Ajustează marginile pentru a alinia corect */
+    margin: 0 10px 0 0; 
     list-style: none;
 }
 
 header ul li a {
     padding: 10px;
-    font-size: 16px; /* Micșorează textul pentru a economisi spațiu */
+    font-size: 16px; 
 }
 
 header ul li a:hover {
     color: peru;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 992px) {
     header .navbar-brand {
-        font-size: 32px; /* Dimensiune redusă pentru spații mici */
+        font-size: 32px; 
     }
 
     header ul {
         flex-direction: column;
         align-items: center;
-         /* Alinează elementele vertical pentru o vizualizare mai bună */
+         
         width: 100%;
         padding: 20px 0; 
     }
 
     header ul li a {
-        font-size: 18px; /* Text mai mic pentru economisirea spațiului */
-        padding: 8px 0; /* Padding vertical pentru a facilita interacțiunea */
+        font-size: 18px; 
+        padding: 8px 0; 
     }
 
-    /* Aplică fundalul întunecat numai când navbar-ul este colapsat */
+   
     .navbar-collapse {
-        background-color: rgba(0, 0, 0, 0.95); /* Fundal semitransparent pentru a crește vizibilitatea textului */
-        margin-top: 10px; /* Spațiu suplimentar pentru estetică */
+        background-color: rgba(0, 0, 0, 0.95); 
+        margin-top: 10px; 
     }
 
     .navbar-toggler {
-        z-index: 1051; /* Asigură că toggler-ul este vizibil peste meniu */
+        z-index: 1051; 
     }
 }
 
-/* Stiluri pentru ajustarea coloanelor pe diferite dimensiuni de ecran */
+
 @media (max-width: 767px) {
     .col-md-3 {
         flex: 0 0 100%;

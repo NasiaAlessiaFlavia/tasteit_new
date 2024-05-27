@@ -1,8 +1,8 @@
-// Importarea SDK-urilor Firebase necesare
+
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
 import { getFirestore, collection, getDocs, query, where, addDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
-// Configurarea Firebase
+
 const firebaseConfig = {
     apiKey: "AIzaSyACOnUAzI_3whGLdgPicBZ4KTKnLCIJZ0s",
     authDomain: "tasteit-d72f7.firebaseapp.com",
@@ -13,7 +13,7 @@ const firebaseConfig = {
     appId: "1:516411013938:web:64edefef8e802e1316b52b"
 };
 
-// Inițializarea Firebase
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
@@ -28,7 +28,7 @@ async function loadAllRestaurantsData() {
         console.error("Error loading restaurant data:", error);
     }
 }
-// Inițializarea datei cu ziua curentă și setarea limitei pentru selecția datelor anterioare
+
 const today = new Date();
 const todayStr = today.toISOString().substring(0, 10);
 const dateInput = document.getElementById('reservationDate');
@@ -48,7 +48,7 @@ const dayMapping = {
 dateInput.addEventListener('change',   function() {
     
     const selectedDate = new Date(dateInput.value);
-    setupTimeOptions(selectedDate);  // Actualizăm opțiunile de timp în funcție de data selectată
+    setupTimeOptions(selectedDate);  
 });
 
 
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
     for (const restaurantName of favorites) {
-        // Aici presupunem că restaurantName este direct numele restaurantului ca șir de caractere
+        
         console.log("Attempting to fetch restaurant with name:", restaurantName);
         const restaurantDoc = await fetchRestaurantByName(restaurantName);
         if (restaurantDoc) {
@@ -105,7 +105,7 @@ function createRestaurantCard(data, container) {
                 if (event.target.classList.contains('remove-favorite')) {
                     const nameToRemove = event.target.getAttribute('data-name');
                     removeFavorite(nameToRemove);
-                    event.target.closest('.card').remove(); // Elimină cardul din DOM
+                    event.target.closest('.card').remove(); 
                 }
             });
       
@@ -116,7 +116,7 @@ function createRestaurantCard(data, container) {
 function removeFavorite(name) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     if (favorites.includes(name)) {
-        favorites = favorites.filter(fav => fav !== name); // Elimină numele
+        favorites = favorites.filter(fav => fav !== name); 
         localStorage.setItem('favorites', JSON.stringify(favorites));
         alert(`${name} has been removed from favorites.`);
     } else {
@@ -129,7 +129,7 @@ function showDetails(data) {
     document.getElementById('restaurantName').textContent = data.name;
     document.getElementById('restaurantDescription').textContent = data.description;
 
-    // Handle the schedule and setup reservation time options
+    
     const scheduleElement = document.getElementById('restaurantHours');
     let scheduleHtml = '';
     if (data.schedule && typeof data.schedule === 'object') {
@@ -139,7 +139,7 @@ function showDetails(data) {
             }
         }
         scheduleElement.innerHTML = scheduleHtml;
-        setupTimeOptions(today);  // Se asigură că timpurile sunt stabilite corect la deschiderea detaliilor
+        setupTimeOptions(today);  
     } else {
         scheduleElement.textContent = "Schedule not available";
     }
@@ -171,10 +171,10 @@ function setupTimeOptions(date) {
         hourSelect.innerHTML = '';
         minuteSelect.innerHTML = '';
 
-        // Popularea selectoarelor pentru oră
+        
         for (let hour = startTime; hour <= endTime; hour++) {
             if (date.toISOString().substring(0, 10) === todayStr && hour < currentHour) {
-                continue;  // Nu include orele care au trecut în ziua curentă
+                continue;  
             }
             let option = document.createElement('option');
             option.value = hour;
@@ -182,10 +182,10 @@ function setupTimeOptions(date) {
             hourSelect.appendChild(option);
         }
 
-        // Setează ora implicită la prima disponibilă
+        
         hourSelect.value = hourSelect.firstChild ? hourSelect.firstChild.value : startTime.toString();
 
-        // Popularea selectoarelor pentru minut
+        
         for (let minute = 0; minute < 60; minute += 30) {
             let option = document.createElement('option');
             option.value = minute;
@@ -193,10 +193,10 @@ function setupTimeOptions(date) {
             minuteSelect.appendChild(option);
         }
 
-        // Setează minutul implicit la "00"
+        
         minuteSelect.value = "0";
 
-        // Actualizare locuri disponibile
+       
         const reservationDate = document.getElementById('reservationDate').value;
         const reservationTime = `${hourSelect.value}:${minuteSelect.value}`;
         const restaurantName = document.getElementById('restaurantName').textContent;
@@ -216,7 +216,7 @@ async function fetchRestaurantByName(restaurantName) {
             console.log('No matching documents for:', restaurantName);
             return null;
         } else {
-            return querySnapshot.docs[0];  // Returnăm datele primului document găsit
+            return querySnapshot.docs[0]; 
         }
     } catch (error) {
         console.error('Failed to fetch restaurant by name:', error);
@@ -250,7 +250,6 @@ if (isNaN(numSeats) || numSeats <= 0 || !customerPhone || !customerName || !rese
   return;
 }
 
-// Fetch restaurant data
 const restaurantDoc = await fetchRestaurantByName(restaurantName);
 if (!restaurantDoc) {
   alert('Restaurant data not found.');
@@ -272,7 +271,7 @@ if (numSeats + totalReservedSeats > currentSeats) {
   return;
 }
 
-// Add new reservation
+
 await addDoc(reservationsRef, {
   restaurantName: restaurantName,
   customerName: customerName,
@@ -312,7 +311,7 @@ try {
 }
 
 document.getElementById('makeReservationButton').addEventListener('click', () => {
-makeReservation(); // Apelarea funcției de rezervare
+makeReservation(); 
 });
 
 document.getElementById('reservationDate').addEventListener('change', () => {

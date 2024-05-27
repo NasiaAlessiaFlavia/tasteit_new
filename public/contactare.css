@@ -42,16 +42,16 @@ header ul li a:hover {
 
  section .container  {
     background-color: antiquewhite;
-    padding: 50px 0; /* Modifică padding-ul la 50px în sus și în jos și 0 pe orizontală */
+    padding: 50px 0; 
     text-align: center;
-    margin: 0 auto; /* Centrează containerul pe orizontală */
-    max-width: 100%; /* Asigură că containerul nu depășește lățimea ecranului */
+    margin: 0 auto; 
+    max-width: 100%; 
 }
 
 .image-container img {
-    max-width: 100%; /* Face ca imaginea să nu depășească lățimea containerului */
+    max-width: 100%; 
     
-    height: 450px; /* Asigură proporțiile corecte ale imaginii */
+    height: 450px; 
    
 }
 
@@ -83,57 +83,57 @@ header ul li a:hover {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: transform 0.3s ease; /* Adaugă o tranziție pentru transformarea butonului */
+    transition: transform 0.3s ease; 
 }
 
 .description button:hover {
-    transform: translateX(10px); /* Deplasează butonul spre dreapta cu 10px */
-    box-shadow:  10px 10px 10px peachpuff; /* Adaugă un efect de umbră */
+    transform: translateX(10px); 
+    box-shadow:  10px 10px 10px peachpuff; 
 }
-      /*formular*/
+      
       #formContainer {
-        display: none; /* Ascunde formularul inițial */
-        margin-top: 20px; /* Adaugă un spațiu între buton și formular */
-        background-color: #fff; /* Background alb */
-        padding: 20px; /* Spațierea interiorului formularului */
-        border-radius:  10px; /* Rotunjirea marginilor formularului */
+        display: none; 
+        margin-top: 20px; 
+        background-color: #fff; 
+        padding: 20px; 
+        border-radius:  10px; 
         border:solid peru;
-        box-shadow: 0 4px 8px peru /* Umbra pentru efect de adâncime */
+        box-shadow: 0 4px 8px peru 
     }
     
     .form-group {
-        margin-bottom: 20px; /* Adaugă un spațiu între fiecare grup de câmpuri */
+        margin-bottom: 20px; 
     }
     
     label {
-        display: block; /* Face ca etichetele să fie afișate pe o linie nouă */
-        font-weight: bold; /* Face textul etichetelor mai îngroșat */
+        display: block; 
+        font-weight: bold; 
     }
     
     input[type="text"],
     input[type="email"],
     input[type="tel"],
     textarea {
-        width: calc(100% - 22px); /* Asigură ca câmpurile de introducere să se întindă pe întreaga lățime disponibilă */
-        padding: 10px; /* Spațierea interiorului câmpurilor de introducere */
-        border: none; /* Elimină marginea câmpurilor de introducere */
-        border-radius: 5px; /* Rotunjirea marginilor câmpurilor de introducere */
-        background-color: #f9f9f9; /* Culoare de fundal a câmpurilor de introducere */
-        margin-bottom: 10px; /* Adaugă un spațiu între câmpurile de introducere */
+        width: calc(100% - 22px); 
+        padding: 10px; 
+        border: none; 
+        border-radius: 5px; 
+        background-color: #f9f9f9;
+        margin-bottom: 10px; 
     }
     
     button[type="submit"] {
-        background-color: peru; /* Culoare de fundal a butonului de trimitere */
-        color: white; /* Culoare a textului butonului de trimitere */
-        padding: 10px 20px; /* Spațierea interiorului butonului de trimitere */
-        border: none; /* Elimină bordura butonului */
-        border-radius: 5px; /* Rotunjirea marginilor butonului de trimitere */
-        cursor: pointer; /* Schimbă cursorul la interacțiune cu butonul */
-        transition: background-color 0.3s ease; /* Adaugă o tranzitie lină pentru schimbarea culorii de fundal la hover */
+        background-color: peru; 
+        color: white; 
+        padding: 10px 20px; 
+        border: none; 
+        border-radius: 5px; 
+        cursor: pointer; 
+        transition: background-color 0.3s ease; 
     }
     
     button[type="submit"]:hover {
-        background-color: #8b5d33; /* Culoare de fundal a butonului de trimitere la survol */
+        background-color: #8b5d33; 
     }
 
 
@@ -164,10 +164,10 @@ footer{
 body {
     font-family: Arial, sans-serif;
     background-image: url('img/pozafundal.jpg');
-    background-size: cover; /* Asigură că imaginea acoperă întregul ecran */
-    background-position: center; /* Centrează imaginea în fereastră */
-    background-repeat: no-repeat; /* Nu repeta imaginea */
-    background-attachment: fixed; /* Face ca imaginea să nu se miște odată cu derularea */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
     margin: 0;
 }
 
@@ -177,7 +177,7 @@ html{
  scroll-behavior: smooth;
 }
  
-/* Stiluri de bază pentru header */
+
 header {
     display: flex;
     justify-content: space-between;
@@ -189,15 +189,15 @@ header {
     z-index: 1050;
     width: 100%;
     backdrop-filter: blur(110px);
-    height: auto; /* Permite header-ului să se ajusteze în înălțime */
+    height: auto; 
     
 }
 
 
 header .navbar-brand {
-    margin-right: auto; /* Asigură că brand-ul nu împinge alte elemente */
-    font-size: 32px; /* Reducem dimensiunea pe toate ecranele, apoi ajustăm specific prin media queries */
-    white-space: nowrap; /* Prevenim ruperea textului */
+    margin-right: auto; 
+    font-size: 32px; 
+    white-space: nowrap; 
     color: antiquewhite;
     text-align: center;
   font-family: Brush Script MT, Brush Script Std, cursive;
@@ -210,43 +210,43 @@ header ul {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    flex-wrap: wrap; /* Permite elementelor să se înfășoare pe ecranul mic */
-    gap: 10px; /* Reduce spațiul între elemente */
+    flex-wrap: wrap; 
+    gap: 10px; 
     padding: 10px 0;
-    margin: 0 10px 0 0; /* Ajustează marginile pentru a alinia corect */
+    margin: 0 10px 0 0; 
     list-style: none;
 }
 
 header ul li a {
     padding: 10px;
-    font-size: 16px; /* Micșorează textul pentru a economisi spațiu */
+    font-size: 16px; /
 }
 
 header ul li a:hover {
     color: peru;
 }
-/* Responsive adjustments for header */
+
 @media (max-width: 992px) {
     header {
-        padding: 10px 20px; /* Ajustează padding-ul pentru a preveni suprapunerea */
+        padding: 10px 20px; 
     }
 
     header .navbar-brand {
-        font-size: 28px; /* Ajustează dimensiunea fontului pentru spații mici */
+        font-size: 28px; 
     }
 
     .navbar-collapse {
-        background-color: rgba(0, 0, 0, 0.85); /* Crește opacitatea pentru o mai bună vizibilitate */
-        padding: 10px 0; /* Adaugă padding pentru a preveni lipirea elementelor de margini */
+        background-color: rgba(0, 0, 0, 0.85); 
+        padding: 10px 0; 
     }
 
     header ul li a {
-        padding: 8px 12px; /* Mărește padding-ul pentru o mai bună accesibilitate */
+        padding: 8px 12px; 
     }
 }
  
 
-/* Stiluri pentru ajustarea coloanelor pe diferite dimensiuni de ecran */
+
 @media (max-width: 767px) {
     .col-md-3 {
         flex: 0 0 100%;
@@ -269,7 +269,6 @@ header ul li a:hover {
 }
 
 
-/* Asigurarea că imaginile sunt responsabile */
 img {
     max-width: 100%;
     height: auto;

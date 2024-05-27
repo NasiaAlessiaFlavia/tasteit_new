@@ -42,16 +42,16 @@ header ul li a:hover {
 
  section .container  {
     background-color: antiquewhite;
-    padding: 50px 0; /* Modifică padding-ul la 50px în sus și în jos și 0 pe orizontală */
+    padding: 50px 0; 
     text-align: center;
-    margin: 0 auto; /* Centrează containerul pe orizontală */
-    max-width: 100%; /* Asigură că containerul nu depășește lățimea ecranului */
+    margin: 0 auto;
+    max-width: 100%; 
 }
 
 .image-container img {
-    max-width: 100%; /* Face ca imaginea să nu depășească lățimea containerului */
+    max-width: 100%; 
     
-    height: 450px; /* Asigură proporțiile corecte ale imaginii */
+    height: 450px; 
    
 }
 
@@ -83,31 +83,31 @@ header ul li a:hover {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: transform 0.3s ease; /* Adaugă o tranziție pentru transformarea butonului */
+    transition: transform 0.3s ease; 
 }
 
 .description button:hover {
-    transform: translateX(10px); /* Deplasează butonul spre dreapta cu 10px */
-    box-shadow:  10px 10px 10px peachpuff; /* Adaugă un efect de umbră */
+    transform: translateX(10px); 
+    box-shadow:  10px 10px 10px peachpuff; 
 }
       /*formular*/
       #formContainer {
-        display: none; /* Ascunde formularul inițial */
-        margin-top: 20px; /* Adaugă un spațiu între buton și formular */
-        background-color: #fff; /* Background alb */
-        padding: 20px; /* Spațierea interiorului formularului */
-        border-radius:  10px; /* Rotunjirea marginilor formularului */
+        display: none; 
+        margin-top: 20px; 
+        background-color: #fff; 
+        padding: 20px; 
+        border-radius:  10px; 
         border:solid peru;
-        box-shadow: 0 4px 8px peru /* Umbra pentru efect de adâncime */
+        box-shadow: 0 4px 8px peru ;
     }
     
     .form-group {
-        margin-bottom: 20px; /* Adaugă un spațiu între fiecare grup de câmpuri */
+        margin-bottom: 20px; 
     }
     
     label {
-        display: block; /* Face ca etichetele să fie afișate pe o linie nouă */
-        font-weight: bold; /* Face textul etichetelor mai îngroșat */
+        display: block; 
+        font-weight: bold; 
     }
     
     input[type="text"],
@@ -125,15 +125,15 @@ header ul li a:hover {
     button[type="submit"] {
         background-color: peru; /* Culoare de fundal a butonului de trimitere */
         color: white; /* Culoare a textului butonului de trimitere */
-        padding: 10px 20px; /* Spațierea interiorului butonului de trimitere */
-        border: none; /* Elimină bordura butonului */
-        border-radius: 5px; /* Rotunjirea marginilor butonului de trimitere */
-        cursor: pointer; /* Schimbă cursorul la interacțiune cu butonul */
-        transition: background-color 0.3s ease; /* Adaugă o tranzitie lină pentru schimbarea culorii de fundal la hover */
+        padding: 10px 20px; 
+        border: none; 
+        border-radius: 5px; 
+        cursor: pointer; 
+        transition: background-color 0.3s ease; 
     }
     
     button[type="submit"]:hover {
-        background-color: #8b5d33; /* Culoare de fundal a butonului de trimitere la survol */
+        background-color: #8b5d33; 
     }
 
 
